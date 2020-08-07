@@ -1,0 +1,33 @@
+{% load zoom %}
+/* Buttons are typically, like, css inline formatted, and apparently browsers
+ * will render whitespace. So if you see some buttons with larger gaps between
+ * them, it's because you've got whitespace between the buttons. The answer is
+ * the spaceless django template tag. */
+button, .button, input[type="submit"], input[type="button"], a.button {
+  background: #79aec8;
+  padding: {% zoom 10 %}px {% zoom 15 %}px;
+  border: none;
+  border-radius: {% zoom 4 %}px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: {% zoom 4 %}px {% zoom 4 %}px {% zoom 2 %}px grey;
+  margin: {% zoom 3 %}px {% zoom 8 %}px {% zoom 3 %}px 0px;
+  font-size: {% font_size .90 %};
+  font-weight: 401; }
+button:active, .button:active, input[type=submit]:active, input[type=button]:active,
+button:focus, .button:focus, input[type=submit]:focus, input[type=button]:focus,
+button:hover, .button:hover, input[type=submit]:hover, input[type=button]:hover,
+button.hover, .button.hover, input[type=submit].hover, input[type=button].hover {
+  background: #609ab6;}
+button[disabled], .button[disabled], input[type=submit][disabled], input[type=button][disabled] {
+  opacity: 0.4;
+  background: #999;}
+a.button { text-decoration: none; display: inline-block; }
+/* Normally the buttons are pretty tight together, but sometimes you want them
+ * to breath a little. */
+.spread-buttons button, .spread-buttons a.button, .spread-buttons a, .spread-buttons input {
+    margin-right: {% zoom 20 %}px; }
+/* "Done" is right next to "Delete." Forcing them horizontal makes it harder to
+ * accidentally click "Delete," and it reduces the height of the table on my
+ * phone. */
+.buttons { white-space: nowrap; }
